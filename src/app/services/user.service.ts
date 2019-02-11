@@ -21,4 +21,15 @@ export class UserService {
         })
       );
   }
+
+  getUserById(id: string) {
+    return this.http.get(`${this.domain_url}/api/users/${id}`)
+      .pipe(
+        map( resp => {
+          return resp['data'];
+        })
+      );
+  }
+
+
 }
