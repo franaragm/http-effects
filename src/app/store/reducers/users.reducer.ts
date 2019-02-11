@@ -29,8 +29,16 @@ export function usersReducer( state = InitState, action:  fromUsers.usersActions
       return {
         ...state,
         loading: false,
-        loaded:true,
+        loaded: true,
         users: [...action.users]
+      }
+
+    case fromUsers.LOAD_USERS_FAIL:
+      return {
+        ...state,
+        loading: false,
+        loaded: false,
+        error: action.payload
       }
 
 
