@@ -22,7 +22,8 @@ export function usersReducer( state = InitState, action:  fromUsers.usersActions
     case fromUsers.LOAD_USERS:
       return {
         ...state,
-        loading: true
+        loading: true,
+        error: null
       }
 
     case fromUsers.LOAD_USERS_SUCCESS:
@@ -38,7 +39,11 @@ export function usersReducer( state = InitState, action:  fromUsers.usersActions
         ...state,
         loading: false,
         loaded: false,
-        error: action.payload
+        error: {
+          status: action.payload.status,
+          message: action.payload.message,
+          url: action.payload.url
+        }
       }
 
 
